@@ -1,0 +1,138 @@
+@import 'libs/normalize';
+@import 'libs/bootstrap';
+@import 'libs/skins';
+@import 'libs/stylesheet';
+@import 'libs/font-awesome.min';
+@import 'blocks/header';
+
+$dark-blue: #287EB6;
+
+body {
+	font-size: 14px !important;
+	background: #FFE479;
+	color: #000;
+}
+#servicesTabs {
+	.service h4 {
+		margin-top: 26px;
+	}
+}
+.tab-content {
+	border: none;
+}
+.colored-wrapper .service-2 {
+	border-color: #FAF551;
+	&:not(:hover) {
+		background: none;				
+	}
+	.service-icon {
+		width: 70px;
+		height: 70px;
+	}
+}
+.service-2 {
+	min-height: 110px;
+}
+#ourMissionWrapper {
+	display: none;
+	i {
+		font-size: 100px;
+		color: #7CCAFF;
+		&:before {
+			text-align: center;
+  			width: 100%;
+		}
+	}
+}
+
+body.showOurMission #ourMissionWrapper {
+	display: block;
+}
+
+#mainModules {
+	border: none;
+}
+
+.section {
+  padding: 30px 0;
+}
+
+.colored-wrapper {
+	background-color: #7CCAFF;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+	background: none;
+}
+
+li.dropdown:hover {
+  cursor: pointer;
+}
+
+#examples {
+	.portfolio-thumb {
+		&>i {
+			font-size: 100px;
+			width: 100%;
+			display: block;
+			text-align: center;
+  			color: $dark-blue;
+		}
+	}
+	.portfolio-item:hover .portfolio-thumb .portfolio-link {
+		margin-right: -25px;
+	}
+
+	.portfolio-item .portfolio-content {
+		background: $dark-blue;
+		height: 80px;
+		* {
+			color: #FFF;
+		}
+	}
+
+	.image-overlay {
+		background: #FFE479 !important;
+	}
+}
+
+#header-2 nav{
+	background: transparent;
+	li.active {
+		background-color: rgba(0, 90, 255, 0.1);
+	}
+}
+
+.section.page-title-wrapper {
+  background-color: $dark-blue;
+}
+
+#footer-1:before {
+	border-top-color: #FFE479;
+}
+
+#aboutUs {
+	i {
+		font-size: 300px;
+  		color: #7CCAFF;
+	}
+}
+
+#ourContacts {
+	.contact-form {
+		input, textarea {
+			background: #7CCAFF;
+			color: $dark-blue;
+  			font-weight: 600;
+		}
+	}
+}
+//Do not combine these lines
+::-webkit-input-placeholder       {font-weight: 600; opacity: 1; transition: opacity 0.5s ease; color: $dark-blue !important;}
+::-moz-placeholder                {font-weight: 600; opacity: 1; transition: opacity 0.5s ease; color: $dark-blue !important;}
+:-moz-placeholder                 {font-weight: 600; opacity: 1; transition: opacity 0.5s ease; color: $dark-blue !important;}
+:-ms-input-placeholder            {font-weight: 600; opacity: 1; transition: opacity 0.5s ease; color: $dark-blue !important;}
+:focus::-webkit-input-placeholder {font-weight: 600; opacity: 0; transition: opacity 0.5s ease;}
+:focus::-moz-placeholder          {font-weight: 600; opacity: 0; transition: opacity 0.5s ease;}
+:focus:-moz-placeholder           {font-weight: 600; opacity: 0; transition: opacity 0.5s ease;}
+:focus:-ms-input-placeholder      {font-weight: 600; opacity: 0; transition: opacity 0.5s ease;}
