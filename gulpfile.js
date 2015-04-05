@@ -18,14 +18,14 @@ var lr = require('tiny-lr'), // Минивебсервер для livereload
 // Собираем sass
 gulp.task('sass', function() {
     gulp.src('./assets/font/**/*')
-        .pipe(deploy ? gulp.dest('./build/font') : gulp.dest('./public/font'));
+        .pipe(deploy ? gulp.dest('./dist/font') : gulp.dest('./public/font'));
 
     gulp.src('./assets/scss/*.scss')
         .pipe(sass()) // собираем sass
             .on('error', console.log) // Если есть ошибки, выводим и продолжаем
         .pipe(myth()) // добавляем префиксы - http://www.myth.io/
         .pipe(csso()) // Minify CSS
-        .pipe(deploy ? gulp.dest('./build/css/') : gulp.dest('./public/css/')) // записываем css
+        .pipe(deploy ? gulp.dest('./dist/css/') : gulp.dest('./public/css/')) // записываем css
         .pipe(livereload(server)); // даем команду на перезагрузку css
 });
 
@@ -47,7 +47,7 @@ gulp.task('jade', function() {
             data: require('./assets/locales/locales.json').ua
         }))
         .on('error', console.log)
-        .pipe(deploy ? gulp.dest('./build/') : gulp.dest('./public/'))
+        .pipe(deploy ? gulp.dest('./dist/') : gulp.dest('./public/'))
         .pipe(livereload(server));
 }); 
 
@@ -57,7 +57,7 @@ gulp.task('js', function() {
     gulp.src(['./assets/js/**/*.js', '!./assets/js/vendors/**/*.js'])
         .pipe(concat('scripts.js')) // Собираем все JS
         // .pipe(uglify())
-        .pipe(deploy ? gulp.dest('./build/js') : gulp.dest('./public/js'))
+        .pipe(deploy ? gulp.dest('./dist/js') : gulp.dest('./public/js'))
         .pipe(livereload(server)); // даем команду на перезагрузку страницы
 
     gulp.src([
@@ -68,7 +68,7 @@ gulp.task('js', function() {
         ])
         .pipe(concat('libs.js'))
         .pipe(uglify())
-        .pipe(deploy ? gulp.dest('./build/js') : gulp.dest('./public/js'))
+        .pipe(deploy ? gulp.dest('./dist/js') : gulp.dest('./public/js'))
         .pipe(livereload(server)); // даем команду на перезагрузку страницы
 });
 
@@ -77,7 +77,7 @@ gulp.task('js', function() {
 gulp.task('images', function() {
     gulp.src('./assets/img/**/*')
         .pipe(imagemin())
-        .pipe(deploy ? gulp.dest('./build/img') : gulp.dest('./public/img'));
+        .pipe(deploy ? gulp.dest('./dist/img') : gulp.dest('./public/img'));
 });
 
 
@@ -124,17 +124,19 @@ gulp.task('deploy', function() {
     gulp.run('js');
     gulp.run('images');
 
-    return gulp.src('./build/**/*')
+    return gulp.src('./dist/**/*')
         .pipe(ghPages());
 });
 
 gulp.task('i18n', function () {
     gulp.src(['./assets/locales/locales.js', './assets/locales/locales.json'])
         .pipe(concat('locales.js'))
-        .pipe(gulp.dest('./assets/js/'));
+        .pipe(gulp.dest('./assets/js/'))
+        .pipe(gulp.dest('./dist/js/'));
 });
 
 gulp.task('getRenderer', function() {
     gulp.src(['./node_modules/gulp-jade/node_modules/jade/runtime.js'])
-        .pipe(gulp.dest('./assets/js/vendors/')); //Copy runtime.js - required for Client-Side jade.
+        .pipe(gulp.dest('./assets/js/vendors/'))
+        .pipe(gulp.dest('./dist/js/vendors/')); //Copy runtime.js - required for Client-Side jade.
 });
