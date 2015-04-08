@@ -9,7 +9,7 @@ $dark-blue: #287EB6;
 
 body {
 	font-size: 14px !important;
-	background: #FFE479;
+	// background: #FFE479;
 	color: #000;
 }
 #servicesTabs {
@@ -21,7 +21,7 @@ body {
 	border: none;
 }
 .colored-wrapper .service-2 {
-	border-color: #FAF551;
+	// border-color: #FAF551;
 	&:not(:hover) {
 		background: none;				
 	}
@@ -58,7 +58,7 @@ body.showOurMission #ourMissionWrapper {
 }
 
 .colored-wrapper {
-	background-color: #7CCAFF;
+	// background-color: #7CCAFF;
 }
 
 .nav>li>a:hover, .nav>li>a:focus {
@@ -104,11 +104,11 @@ li.dropdown:hover {
 }
 
 .section.page-title-wrapper {
-  background-color: $dark-blue;
+  // background-color: $dark-blue;
 }
 
 #footer-1:before {
-	border-top-color: #FFE479;
+	// border-top-color: #FFE479;
 }
 
 #aboutUs {

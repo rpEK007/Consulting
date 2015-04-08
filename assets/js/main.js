@@ -1,25 +1,15 @@
 isTouchDevice = 'ontouchstart' in document.documentElement;
 
-$(function () {
-	$('body').on('click', '.navbar-nav li', onMenuClick);
-	navigateTo(location.hash);
-	if (!isTouchDevice) {
-		$('#servicesTabs [data-toggle="tab"]').on('mouseenter', function () {
-			$(this).click();
-		});		
-	}
-});
-
 function onMenuClick(e) {
 	var tabId = $(this).find('a').attr('href'),
-		scrollTop = window.scrollY;
+		scrollY = window.scrollY;
 
 	if (tabId) {
 		location.hash = tabId;
 	}
 
-	e.preventDefault();	
-	$(window).scrollTop(scrollTop);
+	e.preventDefault();
+	$(window).scrollTop(scrollY);
 }
 
 function navigateTo(tabId) {
@@ -45,4 +35,15 @@ function navigateTo(tabId) {
 
 $(window).bind('hashchange', function() {
 	navigateTo(location.hash);
+});
+
+$(function () {
+	$('body').on('click', '.navbar-nav li', onMenuClick);
+	location.hash = location.hash || 'news';
+	navigateTo(location.hash);
+	if (!isTouchDevice) {
+		$('#servicesTabs [data-toggle="tab"]').on('mouseenter', function () {
+			$(this).click();
+		});		
+	}
 });

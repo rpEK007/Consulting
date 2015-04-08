@@ -1,36 +1,53 @@
 // Инициализируем плагины
-var lr = require('tiny-lr'), // Минивебсервер для livereload
-    gulp = require('gulp'), // Сообственно Gulp JS
-    jade = require('gulp-jade'), // Плагин для Jade
-    sass = require('gulp-sass'), // Плагин для sass
-    livereload = require('gulp-livereload'), // Livereload для Gulp
-    myth = require('gulp-myth'), // Плагин для Myth - http://www.myth.io/
-    csso = require('gulp-csso'), // Минификация CSS
-    imagemin = require('gulp-imagemin'), // Минификация изображений
-    uglify = require('gulp-uglify'), // Минификация JS
-    concat = require('gulp-concat'), // Склейка файлов
+var lr = require('tiny-lr'), // livereload server
+    gulp = require('gulp'), // Gulp JS
+    jade = require('gulp-jade'), // Jade
+    sass = require('gulp-sass'), // sass
+    livereload = require('gulp-livereload'), // Gulp Livereload plugin
+    myth = require('gulp-myth'), // CSS prefixes
+    csso = require('gulp-csso'), // CSS minification
+    imagemin = require('gulp-imagemin'), // Images minification
+    uglify = require('gulp-uglify'), // JS Minification
+    concat = require('gulp-concat'), // Files concatenations
     connect = require('connect'), // Webserver
     ghPages = require('gulp-gh-pages'), //GitHub Pages deployer
     server = lr(),
     deploy = false;
 
 
-// Собираем sass
+gulp.task('getRenderer', function() {
+    gulp.src(['./node_modules/gulp-jade/node_modules/jade/runtime.js'])
+        .pipe(gulp.dest('./assets/js/vendors/'))
+        .pipe(gulp.dest('./dist/js/vendors/')); //Copy runtime.js - required for Client-Side jade.
+});
+
 gulp.task('sass', function() {
     gulp.src('./assets/font/**/*')
         .pipe(deploy ? gulp.dest('./dist/font') : gulp.dest('./public/font'));
 
     gulp.src('./assets/scss/*.scss')
-        .pipe(sass()) // собираем sass
-            .on('error', console.log) // Если есть ошибки, выводим и продолжаем
-        .pipe(myth()) // добавляем префиксы - http://www.myth.io/
-        .pipe(csso()) // Minify CSS
+        .pipe(sass())
+            .on('error', console.log)
+        .pipe(myth())
+        .pipe(csso())
         .pipe(deploy ? gulp.dest('./dist/css/') : gulp.dest('./public/css/')) // записываем css
-        .pipe(livereload(server)); // даем команду на перезагрузку css
+        .pipe(livereload(server));
 });
 
+gulp.task('locales', function () {
+    gulp.src(['./assets/locales/locales.js', './assets/locales/locales.json'])
+        .pipe(concat('locales.js'))
+        .pipe(gulp.dest('./assets/js/'))
+        .pipe(gulp.dest('./dist/js/'));
 
-// Собираем html из Jade
+    gulp.src(['./assets/locales/news.js', './assets/locales/news.json'])
+        .pipe(concat('news.js'))
+        .pipe(gulp.dest('./assets/js/'))
+        .pipe(gulp.dest('./dist/js/'))
+        .pipe(livereload(server));
+});
+
+// Generate HTML from Jade
 gulp.task('jade', function() {
     //Generate function template() to render different locales on FE
     gulp.src(['./assets/template/modules.jade'])
@@ -52,13 +69,17 @@ gulp.task('jade', function() {
 }); 
 
 
-// Собираем JS
 gulp.task('js', function() {
-    gulp.src(['./assets/js/**/*.js', '!./assets/js/vendors/**/*.js'])
-        .pipe(concat('scripts.js')) // Собираем все JS
-        // .pipe(uglify())
+    var scripts = gulp.src(['./assets/js/**/*.js', '!./assets/js/vendors/**/*.js'])
+        .pipe(concat('scripts.js'));
+
+    if (deploy) {
+        scripts = scripts.pipe(uglify());
+    }
+
+    scripts
         .pipe(deploy ? gulp.dest('./dist/js') : gulp.dest('./public/js'))
-        .pipe(livereload(server)); // даем команду на перезагрузку страницы
+        .pipe(livereload(server));
 
     gulp.src([
             './assets/js/vendors/jquery-2.0.3.min.js', 
@@ -69,11 +90,9 @@ gulp.task('js', function() {
         .pipe(concat('libs.js'))
         .pipe(uglify())
         .pipe(deploy ? gulp.dest('./dist/js') : gulp.dest('./public/js'))
-        .pipe(livereload(server)); // даем команду на перезагрузку страницы
+        .pipe(livereload(server));
 });
 
-
-// Копируем и минимизируем изображения
 gulp.task('images', function() {
     gulp.src('./assets/img/**/*')
         .pipe(imagemin())
@@ -81,29 +100,34 @@ gulp.task('images', function() {
 });
 
 
-// Запуск сервера разработки gulp watch
+// Development server run
 gulp.task('default', function() {
-    // Предварительная сборка проекта
+    // Build project
+    gulp.run('getRenderer');
     gulp.run('sass');
+    gulp.run('locales');
     gulp.run('jade');
     gulp.run('js');
     gulp.run('images');
 
-    // Подключаем Livereload
+    // Invoke Livereload
     server.listen(35729, function(err) {
         if (err) return console.log(err);
 
-        gulp.watch('assets/scss/**/*.scss', function() {
+        gulp.watch('assets/scss/**/*', function() {
             gulp.run('sass');
         });
-        gulp.watch('assets/template/**/*.jade', function() {
-            gulp.run('jade');
+        gulp.watch('assets/locales/**/*', function() {
+            gulp.run('locales');
         });
-        gulp.watch('assets/img/**/*', function() {
-            gulp.run('images');
+        gulp.watch('assets/template/**/*', function() {
+            gulp.run('jade');
         });
         gulp.watch('assets/js/**/*', function() {
             gulp.run('js');
+        });
+        gulp.watch('assets/img/**/*', function() {
+            gulp.run('images');
         });
     });
 
@@ -119,24 +143,15 @@ gulp.task('default', function() {
 gulp.task('deploy', function() {
     deploy = true;
 
+    gulp.run('getRenderer');
     gulp.run('sass');
+    gulp.run('locales');
     gulp.run('jade');
     gulp.run('js');
     gulp.run('images');
 
     return gulp.src('./dist/**/*')
-        .pipe(ghPages());
-});
-
-gulp.task('i18n', function () {
-    gulp.src(['./assets/locales/locales.js', './assets/locales/locales.json'])
-        .pipe(concat('locales.js'))
-        .pipe(gulp.dest('./assets/js/'))
-        .pipe(gulp.dest('./dist/js/'));
-});
-
-gulp.task('getRenderer', function() {
-    gulp.src(['./node_modules/gulp-jade/node_modules/jade/runtime.js'])
-        .pipe(gulp.dest('./assets/js/vendors/'))
-        .pipe(gulp.dest('./dist/js/vendors/')); //Copy runtime.js - required for Client-Side jade.
+        .pipe(ghPages({
+            remoteUrl: "https://github.com/rpEK007/Consulting.git"
+        }));
 });
