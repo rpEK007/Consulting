@@ -1,1 +1,31 @@
-.module.tab-pane.active#news News
+.module.tab-pane.section.layout-2#news
+  .container
+    .row
+
+      .col-md-9.content-wrapper
+        article.post
+          .post-content
+            h4.post-title#singleNewsTitle= news[0].title
+            p#singleNewsText= news[0].text
+            .post-meta
+              ul.meta-list
+                li
+                  span.black#singleNewsDate= news[0].date
+
+      .col-md-3.sidebar
+        .widget.popular-posts
+          h5.subpage-title Latest News
+          ul.recent-posts#news-wrapper
+            each val, index in news
+              li
+                article.post(data-id= index)
+                  .post-content
+                    h4.post-title
+                      a= val.title
+                  .post-meta
+                    ul.meta-list
+                      li
+                        span.black= val.date
+                      li
+                        a.read-news Read
+                          i.icon-long-arrow-right

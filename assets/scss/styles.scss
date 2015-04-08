@@ -136,3 +136,7 @@ li.dropdown:hover {
 :focus::-moz-placeholder          {font-weight: 600; opacity: 0; transition: opacity 0.5s ease;}
 :focus:-moz-placeholder           {font-weight: 600; opacity: 0; transition: opacity 0.5s ease;}
 :focus:-ms-input-placeholder      {font-weight: 600; opacity: 0; transition: opacity 0.5s ease;}
+
+a:hover {
+	cursor: pointer;
+}

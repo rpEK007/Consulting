@@ -17,8 +17,7 @@ var lr = require('tiny-lr'), // livereload server
 
 gulp.task('getRenderer', function() {
     gulp.src(['./node_modules/gulp-jade/node_modules/jade/runtime.js'])
-        .pipe(gulp.dest('./assets/js/vendors/'))
-        .pipe(gulp.dest('./dist/js/vendors/')); //Copy runtime.js - required for Client-Side jade.
+        .pipe(gulp.dest('./assets/js/vendors/'));
 });
 
 gulp.task('sass', function() {
@@ -83,9 +82,7 @@ gulp.task('js', function() {
 
     gulp.src([
             './assets/js/vendors/jquery-2.0.3.min.js', 
-            './assets/js/vendors/bootstrap.min.js', 
-            './assets/js/vendors/runtime.js', 
-            './assets/js/vendors/underscore.min.js'
+            './assets/js/vendors/**/*'
         ])
         .pipe(concat('libs.js'))
         .pipe(uglify())

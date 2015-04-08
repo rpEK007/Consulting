@@ -8,19 +8,11 @@ footer#footer-1.footer
       .col-md-3
         .widget.popular-posts
           h5.subpage-title News
-          ul.recent-posts
-            li
-              i.icon-leaf
-              h5
-                a(href='javascript:void(0)') The Ultimate Guide to Adjustment Layers &ndash; Vibrance
-                small Posted July 20, 2013
-            li
-              i.icon-leaf
-              h5
-                a(href='javascript:void(0)') Complete Guide to What&rsquo;s New in Adobe Photoshop 14.1
-                small Posted July 15, 2013
-            li
-              i.icon-leaf
-              h5
-                a(href='javascript:void(0)') How to Integrate Lightroom Into Your Photoshop Workflow
-                small Posted July 10, 2013
+          - var i = 0
+          ul.recent-posts#footer-news
+            while i < 3
+              li
+                h5
+                  a(href='#news' data-id= i)= news[i].title 
+                  small= news[i].date
+                  - i++
