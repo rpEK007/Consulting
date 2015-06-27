@@ -15,8 +15,8 @@ function onMenuClick(e) {
 function navigateTo(tabId) {
 	var parsedId = tabId.slice(1),
 		$el = $('.navbar-nav a[href="#' + parsedId + '"]'),
+		onNavigation = window.routes[parsedId],
 		$tabs = $('#' + parsedId),
-		scrollTop = window.scrollY,
 		$parent;
 
 	$('.navbar-nav li, .module.active').removeClass('active');
@@ -36,8 +36,8 @@ function navigateTo(tabId) {
 	}
 	$("#our-clients").show();
 	initCarousel();
-	if (scrollTop) {
-		window.routes[parsedId]
+	if (onNavigation instanceof Function) {
+		onNavigation();
 	}
 }
 
@@ -57,7 +57,7 @@ function initCarousel() {
         height: "auto",
         prev: "#client-prev",
         next: "#client-next",
-        auto: !0
+        auto: true
     })
 }
 
