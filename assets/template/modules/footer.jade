@@ -2,12 +2,12 @@ footer#footer-1.footer
   .container
     .row
       .col-md-4
-        .widget.about-us
+        .widget#footerText
           span.footer-brand JWA
           p= partAboutJWA1
-      .col-md-3
+      .col-md-3.col-md-offset-1
         .widget.popular-posts
-          h5.subpage-title News
+          h5.subpage-title= newsTitle
           - var i = 0
           ul.recent-posts#footer-news
             while i < 3
@@ -16,3 +16,6 @@ footer#footer-1.footer
                   a(href='#news' data-id= i)= news[i].title 
                   small= news[i].date
                   - i++
+      .col-md-3.col-md-offset-1.footer-contacts
+        .widget
+          include contactForm.jade

@@ -5,32 +5,17 @@
   section#contact-us.section.contact-us
     .container
       .row
-        .col-md-4.wrapper-2
-          h5.subpage-title
-            i.icon-compass Visit Us
-          address
-            strong FLATPOINT, INC.
-            br
-            |  795 Folsom Ave, Suite 600
-            br
-            |  San Francisco, CA 94107
-            br
-          h5.subpage-title
-            i.icon-phone Contact
-          address Phone: (123) 456-7890
-            br
-            |  Fax: (123) 456-7890
-            br
-            a(href='mailto:#') contact@example.com
+        .col-md-4.wrapper-2          
+          include contactForm.jade
         .col-md-8.wrapper-1#contactForm
           form.contact-form
-            h5.subpage-title Get In Touch
+            h5.subpage-title= getInTouch
             .row
               .col-md-4
-                input.input.form-control(placeholder='Name', type='text')
+                input.input.form-control(placeholder=name, type='text')
               .col-md-4
                 input.input.form-control(placeholder='Email', type='text')
               .col-md-4
-                input.input.form-control(placeholder='Subject', type='text')
-            textarea.form-control(placeholder='Your Message', rows='3')
-            button.btn.btn-flat.flat-color Submit
+                input.input.form-control(placeholder=subject, type='text')
+            textarea.form-control(placeholder=yourMessage, rows='3')
+            button.btn.btn-flat.flat-color= submit
