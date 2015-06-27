@@ -70,5 +70,8 @@ window.locales =
 		"ourContacts": "Our Contacts",
 		"latestNews": "Latest News",
 		"readMore": "Read"
+	},
+	"ru": {
+		
 	}
 }
