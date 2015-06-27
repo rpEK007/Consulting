@@ -6,8 +6,8 @@
         article.post
           .post-content
             h4.post-title#singleNewsTitle= news[0].title
-            p#singleNewsText= news[0].text
-            p#newsAppendix= news[0].appendix
+            p#singleNewsText!= news[0].text
+            p#newsAppendix!= news[0].appendix
             .post-meta
               ul.meta-list
                 li

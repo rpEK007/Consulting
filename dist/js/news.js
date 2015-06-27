@@ -54,5 +54,7 @@ window.newsJSON =
 			"text": "News is that...5",
 			"date": "04/05/2015"
 		}
+	],
+	"ru": [
 	]
 }
