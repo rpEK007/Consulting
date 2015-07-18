@@ -3,9 +3,6 @@
 @import 'libs/skins';
 @import 'libs/stylesheet';
 @import 'libs/font-awesome.min';
-// @import 'blocks/header';
-
-// body{font-size:14px!important;color:#151B1B}a:not(.btn){color:#0F69A3}.color-skin-7 a:hover{color:#29AECD}.navbar-default .navbar-toggle .icon-bar{background-color:#2980b9}#servicesTabs .service h4{margin-top:26px}.tab-content{border:none}#logoImage{height:100px}.colored-wrapper .service-2:not(:hover){background:0 0}.colored-wrapper .service-2 .service-icon{width:70px;height:70px}.service-2{min-height:110px}#ourMissionWrapper{display:none}#ourMissionWrapper i{font-size:100px;color:#7CCAFF}#ourMissionWrapper i:before{text-align:center;width:100%}body.showOurMission #ourMissionWrapper{display:block}#mainModules{border:none}.section{padding:30px 0}.nav>li>a:hover,.nav>li>a:focus{background:0 0}li.dropdown:hover{cursor:pointer}#examples .portfolio-thumb>i{font-size:100px;width:100%;display:block;text-align:center;color:#287EB6}#examples .portfolio-item:hover .portfolio-thumb .portfolio-link{margin-right:-25px}#examples .portfolio-item .portfolio-content{background:#287EB6;height:80px}#examples .portfolio-item .portfolio-content *{color:#FFF}#examples .image-overlay{background:#FFE479!important}#news-wrapper .post-meta{border-top:0;margin-top:3px}#news-wrapper article{padding:5px 0}#news-wrapper .post-title{margin:10px 0 0}#header-2 nav{background:0 0}#header-2 nav li.active{background-color:rgba(0,90,255,.1)}.section.page-title-wrapper{padding:10px 0}#aboutUsIcon{height:362px;width:362px;margin:20px 0;padding:0;border-radius:190px;overflow:hidden}#aboutUsIcon img{width:150%;min-height:100%;padding:0;margin-left:-46%}#ourContacts .contact-form input,#ourContacts .contact-form textarea{font-weight:600}:focus::-webkit-input-placeholder{font-weight:600;opacity:0;-webkit-transition:opacity .5s ease;transition:opacity .5s ease}:focus::-moz-placeholder,:focus:-moz-placeholder{font-weight:600;opacity:0;transition:opacity .5s ease}:focus:-ms-input-placeholder{font-weight:600;opacity:0;transition:opacity .5s ease}a:hover{cursor:pointer}.banner{height:235px;background-image:-webkit-gradient(linear,left top,right top,from(#fff),color-stop(30%,rgba(255,255,255,0)),color-stop(70%,rgba(255,255,255,0)),color-stop(#fff 100%)),to(url('../img/12.jpg'));background-image:-webkit-linear-gradient(left,#fff 0%,rgba(255,255,255,0)30%,rgba(255,255,255,0)70%,#fff 100%),url('../img/12.jpg');background-image:linear-gradient(to right,#fff 0%,rgba(255,255,255,0)30%,rgba(255,255,255,0)70%,#fff 100%),url('../img/12.jpg');-webkit-background-size:cover;background-size:cover;background-repeat:no-repeat;background-position-x:center;max-width:1151px;margin:0 auto}#bannerContainer{background:#FFF}@media (max-width:768px){.banner{background-image:url('../img/12.jpg')}}#footerText{color:#FFF}nav .container{height:100%}#header-1,.section.page-title-wrapper,#footer-1{background-color:#2C4E71}#header-1 .header-info-wrapper,#header-1 ul{float:right}#page-title-wrapper+.section{padding-top:0}.sidebar .post-title{font-size:14px}.sidebar .post-meta{font-size:12px}.footer-contacts *{background:#2C4E71;border-color:#2980b9;color:#FFF}.footer-contacts *:focus{border-color:#75C1F3!important}#caroufredsel-clients-container img.img-responsive{height:140px;margin:10px auto}#our-clients{padding-top:0}
 
 //colors
 $color_aztec_approx: #151b1b;
@@ -22,9 +19,6 @@ $color_san_juan_approx: #2c4e71;
 //urls
 $url_banner: url(../img/12.jpg);
 
-//@extend-elements
-//original selectors
-//:focus::-moz-placeholder, :focus:-moz-placeholder
 %extend_1 {
 	font-weight: 600;
 	opacity: 0;
@@ -245,144 +239,14 @@ nav .container {
 		border-color: $color_malibu_approx!important;
 	}
 }
-#caroufredsel-clients-container img.img-responsive {
+.client-wrapper {
 	height: 140px;
-	margin: 10px auto;
+	a {
+		display: block;
+		height: 100%;
+		width: 100%;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
 }
-
-
-// $dark-blue: #287EB6;
-
-// body {
-// 	font-size: 14px !important;
-// 	// background: #FFE479;
-// 	color: #000;
-// }
-// #servicesTabs {
-// 	.service h4 {
-// 		margin-top: 26px;
-// 	}
-// }
-// .tab-content {
-// 	border: none;
-// }
-// .colored-wrapper .service-2 {
-// 	// border-color: #FAF551;
-// 	&:not(:hover) {
-// 		background: none;				
-// 	}
-// 	.service-icon {
-// 		width: 70px;
-// 		height: 70px;
-// 	}
-// }
-// .service-2 {
-// 	min-height: 110px;
-// }
-// #ourMissionWrapper {
-// 	display: none;
-// 	i {
-// 		font-size: 100px;
-// 		color: #7CCAFF;
-// 		&:before {
-// 			text-align: center;
-//   			width: 100%;
-// 		}
-// 	}
-// }
-
-// body.showOurMission #ourMissionWrapper {
-// 	display: block;
-// }
-
-// #mainModules {
-// 	border: none;
-// }
-
-// .section {
-//   padding: 30px 0;
-// }
-
-// .colored-wrapper {
-// 	// background-color: #7CCAFF;
-// }
-
-// .nav>li>a:hover, .nav>li>a:focus {
-// 	background: none;
-// }
-
-// li.dropdown:hover {
-//   cursor: pointer;
-// }
-
-// #examples {
-// 	.portfolio-thumb {
-// 		&>i {
-// 			font-size: 100px;
-// 			width: 100%;
-// 			display: block;
-// 			text-align: center;
-//   			color: $dark-blue;
-// 		}
-// 	}
-// 	.portfolio-item:hover .portfolio-thumb .portfolio-link {
-// 		margin-right: -25px;
-// 	}
-
-// 	.portfolio-item .portfolio-content {
-// 		background: $dark-blue;
-// 		height: 80px;
-// 		* {
-// 			color: #FFF;
-// 		}
-// 	}
-
-// 	.image-overlay {
-// 		background: #FFE479 !important;
-// 	}
-// }
-
-// #header-2 nav{
-// 	background: transparent;
-// 	li.active {
-// 		background-color: rgba(0, 90, 255, 0.1);
-// 	}
-// }
-
-// .section.page-title-wrapper {
-//   // background-color: $dark-blue;
-// }
-
-// #footer-1:before {
-// 	// border-top-color: #FFE479;
-// }
-
-// #aboutUs {
-// 	i {
-// 		font-size: 300px;
-//   		color: #7CCAFF;
-// 	}
-// }
-
-// #ourContacts {
-// 	.contact-form {
-// 		input, textarea {
-// 			background: #7CCAFF;
-// 			color: $dark-blue;
-//   			font-weight: 600;
-// 		}
-// 	}
-// }
-// //Do not combine these lines
-// ::-webkit-input-placeholder       {font-weight: 600; opacity: 1; transition: opacity 0.5s ease; color: $dark-blue !important;}
-// ::-moz-placeholder                {font-weight: 600; opacity: 1; transition: opacity 0.5s ease; color: $dark-blue !important;}
-// :-moz-placeholder                 {font-weight: 600; opacity: 1; transition: opacity 0.5s ease; color: $dark-blue !important;}
-// :-ms-input-placeholder            {font-weight: 600; opacity: 1; transition: opacity 0.5s ease; color: $dark-blue !important;}
-// :focus::-webkit-input-placeholder {font-weight: 600; opacity: 0; transition: opacity 0.5s ease;}
-// :focus::-moz-placeholder          {font-weight: 600; opacity: 0; transition: opacity 0.5s ease;}
-// :focus:-moz-placeholder           {font-weight: 600; opacity: 0; transition: opacity 0.5s ease;}
-// :focus:-ms-input-placeholder      {font-weight: 600; opacity: 0; transition: opacity 0.5s ease;}
-
-// a:hover {
-// 	cursor: pointer;
-// }

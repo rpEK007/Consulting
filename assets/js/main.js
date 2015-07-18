@@ -68,7 +68,7 @@ function switchNews(newsIndex) {
 		$body = $('body');
 
 	$currentNewItem.text(news.title);
-    $("#singleNewsText").text(news.text);
+    $("#singleNewsText").html(news.text);
     $("#newsAppendix").html(news.appendix || "");
     $("#singleNewsDate").text(news.date);
     if ($body.scrollTop() > titleOffsetTop) {
