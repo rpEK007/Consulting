@@ -9,7 +9,7 @@ window.newsJSON =
 		{
 			"title": "Ретроспективний огляд стосунків Україна-ЄС",
 			"text": "<a href=\"http://www.eeas.europa.eu/statements/docs/2014/140514_02_en.pdf\">http://www.eeas.europa.eu/statements/docs/2014/140514_02_en.pdf</a>",
-			"date": "24 апреля 2015"
+			"date": "24 квітня 2015"
 		},  		
 		{
 			"title": "Україна приєдналася до програми Горизонт 2020",
@@ -28,7 +28,7 @@ window.newsJSON =
 		{
 			"title": "Review of EU-Ukraine relations",
 			"text": "<a href=\"http://www.eeas.europa.eu/statements/docs/2014/140514_02_en.pdf\">http://www.eeas.europa.eu/statements/docs/2014/140514_02_en.pdf</a>",
-			"date": "24 апреля 2015"
+			"date": "April 24, 2015"
 		},  	
 		{
 			"title": "Ukraine joins Horizon 2020 to work with EU in science and research",

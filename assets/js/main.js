@@ -106,7 +106,7 @@ $(function () {
 		.on("click", "#footer-news a", function (e) {
 			switchNews($(e.target).data("id"))
 		});
-    location.hash = location.hash || "new";
+    location.hash = location.hash || "news";
     navigateTo(location.hash);
     if (!isTouchDevice) {
         $('#servicesTabs [data-toggle="tab"]').on("mouseenter", function () {

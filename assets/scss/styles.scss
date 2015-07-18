@@ -250,3 +250,16 @@ nav .container {
 		background-repeat: no-repeat;
 	}
 }
+.footer {
+	.partners {
+		a {
+			display: block;
+  			width: 50%;
+  			float: left;
+  			padding: 5px;
+  			img {
+  				width: 100%;
+  			}
+		}
+	}
+}
