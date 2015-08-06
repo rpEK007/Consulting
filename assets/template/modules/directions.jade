@@ -1,43 +1,61 @@
 .module.tab-pane.colored-wrapper.section#directions
   .container
     .row
+      .container-fluid= directionsMain
+      .detailsContainer
+
       .col-xs-12.col-sm-6.col-md-4.wrapper-1
         .service.service-2
           span.service-icon
             i.icon-eur
           h4= directionEconomy
+      .col-md-12.details= economyDirectionDetails
+
       .col-xs-12.col-sm-6.col-md-4.wrapper-1
         .service.service-2
           span.service-icon
             i.icon-truck
           h4= directionTransport
+      .col-md-12.details= transportDirectionDetails
+
       .col-xs-12.col-sm-6.col-md-4.wrapper-1
         .service.service-2
           span.service-icon
             i.icon-compass
           h4= directionInvestments
+      .col-md-12.details= investmentsDirectionDetails
+
       .col-xs-12.col-sm-6.col-md-4.wrapper-1
         .service.service-2
           span.service-icon
             i.icon-leaf
           h4= directionNature
+      .col-md-12.details= natureDirectionDetails
+
       .col-xs-12.col-sm-6.col-md-4.wrapper-1
         .service.service-2
           span.service-icon
             i.icon-book
           h4= directionEducation
+      .col-md-12.details= educationDirectionDetails
+
       .col-xs-12.col-sm-6.col-md-4.wrapper-1
         .service.service-2
           span.service-icon
             i.icon-picture
           h4= directionCulture
+      .col-md-12.details= cultureDirectionDetails
+
       .col-xs-12.col-sm-6.col-md-4.wrapper-1
         .service.service-2
           span.service-icon
             i.icon-github
           h4= directionNonCommercial
+      .col-md-12.details= nonCommercialDirectionDetails
+
       .col-xs-12.col-sm-6.col-md-4.wrapper-1
         .service.service-2
           span.service-icon
             i.icon-group
           h4= directionTrainings
+      .col-md-12.details= trainingsDirectionDetails

@@ -16,6 +16,9 @@ $color_kournikova_approx: #ffe479;
 $color_blue_ribbon_10_approx: rgba(0,90,255,.1);
 $color_san_juan_approx: #2c4e71;
 
+//font
+$detailsFontSize: 130%;
+
 //urls
 $url_banner: url(../img/12.jpg);
 
@@ -261,5 +264,34 @@ nav .container {
   				width: 100%;
   			}
 		}
+	}
+}
+.detailsContainer {
+	position: relative;
+	float: left;
+	.tooltip {
+		left: 0!important;
+		top: 0!important;
+		font-size: $detailsFontSize;
+		.tooltip-arrow {
+		  	border-bottom-color: #2980b9 !important;
+		}
+		.tooltip-inner {
+			max-width: 90%;
+	  		margin-left: 5%;
+	  		background-color: #2980b9;
+	  		text-align: left;
+		}
+	}
+}
+.details {
+	display: none;
+	position: absolute;
+	font-size: $detailsFontSize;
+	width: 80%;
+}
+#directions {
+	.row {
+		position: relative;
 	}
 }
