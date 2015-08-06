@@ -108,30 +108,29 @@ gulp.task('default', function() {
     gulp.run('images');
 
     // Invoke Livereload
-    server.listen(35729, function(err) {
-        if (err) return console.log(err);
+    // server.listen(35729, function(err) {
+    //     if (err) return console.log(err);
 
-        gulp.watch('assets/scss/**/*', function() {
-            gulp.run('sass');
-        });
-        gulp.watch('assets/locales/**/*', function() {
-            gulp.run('locales');
-        });
-        gulp.watch('assets/template/**/*', function() {
-            gulp.run('jade');
-        });
-        gulp.watch('assets/js/**/*', function() {
-            gulp.run('js');
-        });
-        gulp.watch('assets/img/**/*', function() {
-            gulp.run('images');
-        });
-    });
+    //     gulp.watch('assets/scss/**/*', function() {
+    //         gulp.run('sass');
+    //     });
+    //     gulp.watch('assets/locales/**/*', function() {
+    //         gulp.run('locales');
+    //     });
+    //     gulp.watch('assets/template/**/*', function() {
+    //         gulp.run('jade');
+    //     });
+    //     gulp.watch('assets/js/**/*', function() {
+    //         gulp.run('js');
+    //     });
+    //     gulp.watch('assets/img/**/*', function() {
+    //         gulp.run('images');
+    //     });
+    // });
 
     connect()
-        .use(livereload(server))
         .use(connect.static('./public'))
-        .listen('9000');
+        .listen(process.env.PORT || 5000);
 
     console.log('Server listening on http://localhost:9000');
 });
