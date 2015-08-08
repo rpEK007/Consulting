@@ -132,7 +132,7 @@ gulp.task('default', function() {
         .use(connect.static('./public'))
         .listen(process.env.PORT || 5000);
 
-    console.log('Server listening on http://localhost:9000');
+    console.log('Server listening on http://localhost:5000');
 });
 
 
