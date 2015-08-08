@@ -58,7 +58,16 @@ window.locales =
 		"investmentsDirectionDetails": "Фінансова підтримка ЄС доступна для розробки інноваційних продуктів, процесів або пристроїв. Особливе значення приділяється тим з них, які сприяють охороні навколишнього середовища, кращому використанню інформаційних та комунікаційних технологій, або підтримці та поширенню інтелектуальних енергетичних рішень.",
 		"natureDirectionDetails": "Кошти ЄС надаються для проектів, які сприяють розробці екологічних рішеннь великого суспільного масштабу. Зокрема, ЄС підтримує проекти з охорони природи та біорізноманіття, екологічної політики і управління, а також супутньої інформації і комунікації.",
 		"cultureDirectionDetails": "ЄС активно фінансує культурні проекти, які сприяють міжнародній мобільності, а також транснаціональній циркуляції культурних та художніх процесів, або ініціюють та підтримують міжкультурний діалог.",
-		"nonCommercialDirectionDetails": "ЄС надає фінансування для проектів, які пропагують конкурентоспроможність та стратегічні пріорітети у сфері туризму, вдосконаленню нормативно-правового середовища для туризму, або поглибленню розуміння специфіки туризму, а також просування туристичних проектів на європейських напрямках."
+		"nonCommercialDirectionDetails": "ЄС надає фінансування для проектів, які пропагують конкурентоспроможність та стратегічні пріорітети у сфері туризму, вдосконаленню нормативно-правового середовища для туризму, або поглибленню розуміння специфіки туризму, а також просування туристичних проектів на європейських напрямках.",
+		"lobbying": "Лобіювання",
+		"lobbying_1": "JWA є успішною у наданні послуг лобіювання завдяки нашим знанням і доступу до ключових відповідних осіб і широкої мережі контактів.",
+		"lobbying_2": "JWA має добре налагоджені відносини з Європейською комісією, Європейською службою з зовнішньої політики, співробітниками Ради Європи і основних постійних представництв держав-членів Європейського Союзу, ключовими членами Європейського парламенту, великою кількістю журналістів з ЄС, а також багатьма think-tank та НГО.",
+		"lobbying_3": "Це дозволяє нам організовувати ефективні зустрічі і забезпечувати максимально швидке донесення ключових повідомлень клієнта.",
+		"lobbying_4": "Ми детально співпрацюємо з юридичною командою, а також спеціалістами з питань зв'язків з громадськістю нашого клієнта, його зовнішніми правовими та економічними радниками, аби забезпечити узгодження бачення і кроків у стратегії лобіювання.",
+		"lobbying_5": "JWA підтримує клієнтів по таким основним напрямкам:",
+		"lobbying_5_part_1": "Збір своєчасної та актуальної інформації та її аналіз.",
+		"lobbying_5_part_2": "Підготовка та консультації із стратегії проекту і ключових ідей клієнта, які мають бути донесені до відповідних кіл.",
+		"lobbying_5_part_3": "Допомога у розробці комунікаційної стратегії та донесення ідей."
 	},
 	"en": {
 		"newsTitle": "News",
@@ -110,7 +119,16 @@ window.locales =
 		"telephone": "Phone",
 		"partAboutJWA1": "JWA is a consulting and project management company based at the heart of Brussels European district.",
 		"partAboutJWA2": "JWA has demonstrated to be a valuable asset for its clients from strategic development guidance and customized training, to grant writing and management of granted projects. JWA and its teams of experts have more than 20 years of experience on the field. Our staff has developed funding projects while working for major European banks, the Big Four, Public Authorities, European R&D platforms, and leading Universities.We already assisted many diverse projects, combining public and private funds in Europe and third countries, by obtaining more than 150 million €. Moreover, JWA experts have successfully organized over 100 workshops and seminars.",
-		"directionsMain": "Our company is proud to have a rich project portfolio spanning many different domains: from IT to Energy, Transport, Health or Environment.\nClick on the following sectors (icons) to learn more about the available funding opportunities"
+		"directionsMain": "Our company is proud to have a rich project portfolio spanning many different domains: from IT to Energy, Transport, Health or Environment.\nClick on the following sectors (icons) to learn more about the available funding opportunities",
+		"lobbying": "Lobbying",
+		"lobbying_1": "JWA has had proven success in lobbying services thanks to our knowledge and access to key relevant decision-makers and network of contacts.",
+		"lobbying_2": "JWA has well-established relationships with the European Commission, European External Action Service, Council staff at senior level and key Permanent Representations of the Member States to the European Union, key Members of the European Parliament, a large number of EU-based reporters, and many think tanks and NGOs.",
+		"lobbying_3": "This enables us to make meetings happen and to ensure that the key messages are swiftly and effectively put across.",
+		"lobbying_4": "We work with our client’s in-house legal and public affairs team and with their external legal and economic advisors.",
+		"lobbying_5": "JWA supports clients principally along the following directions:",
+		"lobbying_5_part_1": "Information gathering and analysis",
+		"lobbying_5_part_2": "Preparation and advice on project strategy & key messages",
+		"lobbying_5_part_3": "Assistance on communication strategy and delivery"
 	},
 	"ru": {
 		"newsTitle": "Новости",
@@ -162,6 +180,15 @@ window.locales =
 		"telephone": "Телефон",
 		"partAboutJWA1": "JWA Funding – это консалтинговая компания, которая базируется в самом центре Брюсселя, в сосредоточении европейских проектов и источников для их финансирования.",
 		"partAboutJWA2": "Мы предоставляем услуги управления грантовыми проектами, с момента формулировки потребности и написания грантовой предложения, в стадии разработки системы стратегического развития компаний и организаций-получателей финансирования. Команда экспертов JWA Funding работает на рынке международного финансирования более 20 лет. За это время мы разработали и успешно скоординировали многочисленные грантовые проекты в сотрудничестве с ведущими европейскими банками и финансовыми учреждениями, органами государственной власти европейских стран, известными европейскими университетами и научно-исследовательскими платформами. Работая с грантовыми проектами в Европе и за ее пределами, наши эксперты стали проводниками финансовых ресурсов на сумму, превышающую 150 миллионов евро. Кроме этого, мы организовали и провели более 100 семинаров и тренингов по вопросам получения европейского финансирования.",
-		"directionsMain": "Мы гордимся нашим портфелем успешных проектов, который охватывает многие сферы: от ИТ, энергетики и транспорта, до здравоохранения и охраны окружающей среды.\nУзнайте больше о различных направлениях нашей работы, опирающихся на приоритеты ЕС в международном финансировании."
+		"directionsMain": "Мы гордимся нашим портфелем успешных проектов, который охватывает многие сферы: от ИТ, энергетики и транспорта, до здравоохранения и охраны окружающей среды.\nУзнайте больше о различных направлениях нашей работы, опирающихся на приоритеты ЕС в международном финансировании.",
+		"lobbying": "Лоббирование",
+		"lobbying_1": "JWA успешно предоставляет услуги лоббирования благодаря нашим знаниям и доступу к ключевым соответствующим лицам, а также широкой сети контактов.",
+		"lobbying_2": "JWA имеет хорошо налаженные отношения с Европейской комиссией, Европейской службой внешней политики, сотрудниками Совета Европы и основными постоянными представительствами государств-членов Европейского Союза, ключевыми членами Европейского парламента, большим количеством журналистов из стран ЕС, а также многими think-tanks и НГО.",
+		"lobbying_3": "Это позволяет нам организовывать эффективные встречи и обеспечивать максимально быстрое донесение ключевых идей клиента.",
+		"lobbying_4": "Мы плоьно сотрудничаем с юридической командой, а также специалистами по связям с общественностью нашего клиента, его внешними правовыми и экономическими советниками, с целью обеспечить максимальное согласование видения и шагов в стратегии лоббирования.",
+		"lobbying_5": "JWA поддерживает клиентов по следующим основным направлениям:",
+		"lobbying_5_part_1": "Сбор своевременной и актуальной информации и ее анализ.",
+		"lobbying_5_part_2": "Подготовка и консультации по стратегии проекта и выработке ключевых идей клиента, которые должны быть донесены до соответствующих кругов.",
+		"lobbying_5_part_3": "Помощь в разработке коммуникационной стратегии и донесении идей."
 	}
 }
