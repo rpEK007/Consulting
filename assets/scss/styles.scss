@@ -32,9 +32,6 @@ $url_banner: url(../img/12.jpg);
 body {
 	font-size: 14px!important;
 	color: $color_aztec_approx;
-	&.showOurMission #ourMissionWrapper {
-		display: block;
-	}
 }
 a {
 	&:hover {
@@ -53,8 +50,7 @@ a {
 .service-2 {
 	min-height: 110px;
 }
-#ourMissionWrapper {
-	display: none;
+#ourMission {
 	i {
 		font-size: 100px;
 		color: $color_malibu_approx;
