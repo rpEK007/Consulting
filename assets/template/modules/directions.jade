@@ -2,52 +2,22 @@
   .container
     .row
       .container-fluid= directionsMain
-      .detailsContainer
 
-        .col-xs-12.col-sm-6.col-md-4.wrapper-1
-          .service
-            span.service-icon(style="background-image: url(../img/directions/ECONOMICS.jpg);")
-            h4= direction1
-            .details= direction1Details
+      -directionsPics = ['ECONOMICS', 'development', 'ENVIRONMENT', 'RESEARCH', 'trainings', 'CULTURE', 'TRANSPORT', 'TOURISM']
+      -directionsTitles = [direction1, direction3, direction4, direction5, direction8, direction6, direction2, direction7]
+      -directionsDetailes = [direction1Details, direction3Details, direction4Details, direction5Details, direction8Details, direction6Details, direction2Details, direction7Details]
 
-        .col-xs-12.col-sm-6.col-md-4.wrapper-1
-          .service
-            span.service-icon(style="background-image: url(../img/directions/development.jpg);")
-            h4= direction3
-            .details= direction3Details
 
-        .col-xs-12.col-sm-6.col-md-4.wrapper-1
-          .service
-            span.service-icon(style="background-image: url(../img/directions/ENVIRONMENT.jpg);")
-            h4= direction4
-            .details= direction4Details
+      each title, index in directionsTitles
 
-        .col-xs-12.col-sm-6.col-md-4.wrapper-1
+        .col-xs-12.col-sm-6.col-md-4.wrapper-1(data-hash="directions/" + (index+1))
           .service
-            span.service-icon(style="background-image: url(../img/directions/RESEARCH.jpg);")
-            h4= direction5
-            .details= direction5Details
-
-        .col-xs-12.col-sm-6.col-md-4.wrapper-1
-          .service
-            span.service-icon(style="background-image: url(../img/directions/trainings.jpg);")
-            h4= direction8
-            .details= direction8Details
-
-        .col-xs-12.col-sm-6.col-md-4.wrapper-1
-          .service
-            span.service-icon(style="background-image: url(../img/directions/CULTURE.jpg);")
-            h4= direction6
-            .details= direction6Details
-
-        .col-xs-12.col-sm-6.col-md-4.wrapper-1
-          .service
-            span.service-icon(style="background-image: url(../img/directions/TRANSPORT.jpg);")
-            h4= direction2
-            .details= direction2Details
-
-        .col-xs-12.col-sm-6.col-md-4.wrapper-1
-          .service
-            span.service-icon(style="background-image: url(../img/directions/TOURISM.jpg);")
-            h4= direction7
-            .details= direction7Details
+            span.service-icon(style="background-image: url(../img/directions/" + directionsPics[index] + ".jpg);")
+            h4= title
+            .details
+              .container
+                .row
+                  .col-md-6.wrapper-1.categoryIcon
+                    img.col-md-6.col-lg-7.wrapper-1(src="img/directions/" + directionsPics[index] + ".jpg")
+                  .col-md-6.wrapper-1
+                    p= directionsDetailes[index]

@@ -3,7 +3,7 @@ window.locales =
 	"ua": {
 		"newsTitle": "Новини",
 		"aboutUs": "Про нас",
-		"ourServices": "Наші послуги",
+		"ourServices": "Гранти ЄС",
 		"ourMethods": "Методологія JWA",
 		"directions": "Напрямки",
 		"clients": "Категорії клієнтів",
@@ -79,7 +79,7 @@ window.locales =
 	"en": {
 		"newsTitle": "News",
 		"aboutUs": "About us",
-		"ourServices": "Our services",
+		"ourServices": "EU Funding",
 		"ourMethods": "JWA Methodology",
 		"directions": "Areas of work",
 		"clients": "Clients",
@@ -155,7 +155,7 @@ window.locales =
 	"ru": {
 		"newsTitle": "Новости",
 		"aboutUs": "О нас",
-		"ourServices": "Наши услуги",
+		"ourServices": "Гранты ЕС",
 		"ourMethods": "Методология JWA",
 		"directions": "Направления",
 		"clients": "Категории клиентов",

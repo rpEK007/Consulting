@@ -14,10 +14,14 @@ function onMenuClick(e) {
 
 function navigateTo(tabId) {
 	var parsedId = tabId.slice(1),
-		$el = $('.navbar-nav a[href="#' + parsedId + '"]'),
-		onNavigation = window.routes[parsedId],
-		$tabs = $('#' + parsedId),
-		$parent;
+		onNavigation, arg, $el, $tabs, $parent;
+
+	parsedId = parsedId.split('/')[0];
+	arg = parsedId.split('/')[1];
+
+	$el = $('.navbar-nav a[href="#' + parsedId + '"]');
+	$tabs = $('#' + parsedId);
+	onNavigation = window.routes[parsedId];
 
 	$('.navbar-nav li, .module.active').removeClass('active');
 
@@ -37,7 +41,7 @@ function navigateTo(tabId) {
 	initCarousel();
 	$('.banner').attr('class', 'banner ' + $tabs.filter('li').attr('id'));
 	if (onNavigation instanceof Function) {
-		onNavigation();
+		onNavigation(arg);
 	}
 }
 
@@ -79,6 +83,22 @@ function switchNews(newsIndex) {
 	}
 }
 
+function showDetails() {
+	var $el = $('.wrapper-1[data-hash="' + location.hash.slice(1) + '"]'),
+		$clone = $el.find('.details').clone();
+
+	if ($el.length) {
+		$el.parents('.module').append($clone);
+		$clone.append('<div class="back-icon">➜</div>');
+		setTimeout(function () {
+			$clone.addClass('show');
+		}, 0);		
+	} else {
+		$('.details.show').remove();
+	}
+
+}
+
 window.routes = {
     ourContacts: function () {
         var $map = $("#google-map iframe"),
@@ -90,11 +110,13 @@ window.routes = {
     },
 	news: function () {
         $("#our-clients").hide();
-    }
+    },
+    directions: showDetails,
+    clients: showDetails
 };
 
 $(window).bind("hashchange", function () {
-    navigateTo(location.hash)
+    navigateTo(location.hash);
 });
 
 $(function () {
@@ -107,20 +129,14 @@ $(function () {
 		.on("click", "#footer-news a", function (e) {
 			switchNews($(e.target).data("id"))
 		})
-		.on("click", "#directions .wrapper-1, #clients .wrapper-1", function (e) {
-    		var $el = $(e.target).parents('.wrapper-1'),
-    			$clone = $el.find('.details').clone();
-
-    		$el.parents('.module').append($clone);
-    		$clone.append('<div class="closing-icon">✕</div>');
-    		setTimeout(function () {
-    			$clone.addClass('show');
-    		}, 0);
+		.on("click", "[data-hash]", function (e) {
+			location.hash = e.currentTarget.dataset.hash;
 		})
-		.on("click", ".closing-icon", function (e) {
+		.on("click", ".back-icon", function (e) {
 			e.target.parentElement.remove();
-		}).
-		on("click", ".lang", function (e) {
+			history.back();
+		})
+		.on("click", ".lang", function (e) {
 			setL10n(e.target.dataset.lang);
 
 			return false;

@@ -2,34 +2,21 @@
   .container
     .row
       p= clientsMain
-      .col-xs-12.col-sm-6.col-md-4.wrapper-1
-        .service
-          span.service-icon(style="background-image: url(../img/clientCategories/corps.jpg);")
-          h4= clients1
-          .details
-            p= clients1Details
-      .col-xs-12.col-sm-6.col-md-4.wrapper-1
-        .service
-          span.service-icon(style="background-image: url(../img/clientCategories/SMEs.jpg);")
-          h4= clients2
-          .details= clients2Details
-      .col-xs-12.col-sm-6.col-md-4.wrapper-1
-        .service
-          span.service-icon(style="background-image: url(../img/clientCategories/UNIVERSITIES.jpg);")
-          h4= clients3
-          .details= clients3Details
-      .col-xs-12.col-sm-6.col-md-4.wrapper-1
-        .service
-          span.service-icon(style="background-image: url(../img/clientCategories/NGO.jpg);")
-          h4= clients4
-          .details= clients4Details
-      .col-xs-12.col-sm-6.col-md-4.wrapper-1
-        .service
-          span.service-icon(style="background-image: url(../img/clientCategories/public.jpg);")
-          h4= clients5
-          .details= clients5Details
-      .col-xs-12.col-sm-6.col-md-4.wrapper-1
-        .service
-          span.service-icon(style="background-image: url(../img/clientCategories/individual_res.jpg);")
-          h4= clients6
-          .details= clients6Details
+      -clientPics = ['corps', 'SMEs', 'UNIVERSITIES', 'NGO', 'public', 'individual_res']
+      -clientTitles = [clients1, clients2, clients3, clients4, clients5, clients6]
+      -clientDetailes = [clients1Details, clients2Details, clients3Details, clients4Details, clients5Details, clients6Details]
+
+
+      each title, index in clientTitles
+
+        .col-xs-12.col-sm-6.col-md-4.wrapper-1(data-hash="clients/" + (index+1))
+          .service
+            span.service-icon(style="background-image: url(../img/clientCategories/" + clientPics[index] + ".jpg);")
+            h4= title
+            .details
+              .container
+                .row
+                  .col-md-6.wrapper-1.categoryIcon
+                    img.col-md-6.col-lg-7.wrapper-1(src="img/clientCategories/" + clientPics[index] + ".jpg")
+                  .col-md-6.wrapper-1
+                    p= clientDetailes[index]

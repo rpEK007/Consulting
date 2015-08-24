@@ -135,7 +135,7 @@ a {
 		margin: 10px 0 0;
 	}
 }
-#aboutUsIcon, #missionImageWrapper {
+#aboutUsIcon, #missionImageWrapper, .categoryIcon {
 	height: 362px;
 	width: 362px;
 	margin: 20px 0;
@@ -229,8 +229,13 @@ a {
 .navbar-default .navbar-toggle .icon-bar {
 	background-color: $color_boston_blue_approx;
 }
-#servicesTabs .service h4 {
-	margin-top: 26px;
+#servicesTabs {
+	.service h4 {
+		margin-top: 26px;
+	}
+	.service-2 {
+		height: 110px;
+	}
 }
 .service-2 {
 	.service-icon {
@@ -332,15 +337,16 @@ nav .container {
 		transition: opacity 0.3s ease-in;
 	}
 
-	.closing-icon {
+	.back-icon {
 		position: absolute;
-		top: 0;
+		top: -70px;
 		right: 0;
 		height: 50px;	
 		width: 60px;
 		text-align: center;
 		font-size: 30px;
 		line-height: 50px;
+		transform: rotateY(180deg);
 		&:hover {
 			cursor: pointer;
 			background: rgba(0,90,255,.1);
