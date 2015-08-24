@@ -5,7 +5,7 @@
 @import 'libs/font-awesome.min';
 
 //colors
-$color_aztec_approx: #151b1b;
+$color_aztec_approx: rgb(87, 87, 86);
 $color_matisse_approx: #0f69a3;
 $color_scooter_approx: #29aecd;
 $color_boston_blue_approx: #2980b9;
@@ -19,9 +19,6 @@ $color_san_juan_approx: #2c4e71;
 //font
 $detailsFontSize: 130%;
 
-//urls
-$url_banner: url(../img/12.jpg);
-
 %extend_1 {
 	font-weight: 600;
 	opacity: 0;
@@ -30,7 +27,7 @@ $url_banner: url(../img/12.jpg);
 
 
 body {
-	font-size: 14px!important;
+	font-size: 16px!important;
 	color: $color_aztec_approx;
 }
 a {
@@ -50,6 +47,22 @@ a {
 .service-2 {
 	min-height: 110px;
 }
+.color-skin-7 .service {
+	border: 2px solid #2980b9;
+	background: #FFF;
+	box-shadow: none;
+	border-radius: 18px;
+
+	&:hover {
+		background-color: #ecf0f1;
+		h4 {
+			color: #2c3e50;			
+		}
+		.service-icon {
+			box-shadow: none;
+		}
+	}
+}
 #ourMission {
 	i {
 		font-size: 100px;
@@ -65,13 +78,6 @@ a {
 }
 #mainModules {
 	border: none;
-}
-.section {
-	padding: 30px 0;
-	&.page-title-wrapper {
-		padding: 10px 0;
-		background-color: $color_san_juan_approx;
-	}
 }
 .nav>li>a {
 	&:hover {
@@ -151,20 +157,26 @@ a {
 }
 .banner {
 	height: 235px;
-	background-image: linear-gradient(to right,$white 0,rgba(255,255,255,0)30%,rgba(255,255,255,0)70%,$white 100%),$url_banner;
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position-x: center;
-	max-width: 1151px;
+	background-position: center;
 	margin: 0 auto;
+
+	&.aboutUsMenu {
+		background-image: url(../img/banners/ABOUT_US.jpg);
+	}
+	&.lobbyingMenu {
+		background-image: url(../img/banners/LOBBYING.jpg);
+	}
+	&.newsMenu {
+		background-image: url(../img/banners/NEWS.jpg);
+	}
+	&.ourServicesMenu {
+		background-image: url(../img/banners/SERVICES.jpg);
+	}
 }
 #bannerContainer {
 	background: $white;
-}
-@media(max-width:768px) {
-	.banner {
-		background-image: $url_banner;
-	}
 }
 #footerText {
 	color: $white;
@@ -201,13 +213,20 @@ a {
 #servicesTabs .service h4 {
 	margin-top: 26px;
 }
-.colored-wrapper .service-2 {
+.service-2 {
 	.service-icon {
 		width: 70px;
 		height: 70px;
 	}
 	&:not(:hover) {
 		background: 0 0;
+	}
+}
+#clients, #directions {
+	.service-icon {
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position-x: -22px;
 	}
 }
 li.dropdown:hover {
@@ -230,8 +249,11 @@ li.dropdown:hover {
 nav .container {
 	height: 100%;
 }
-#page-title-wrapper+.section {
+#mainModules, #google-map, #mainModules>div {
 	padding-top: 0;
+}
+#page-title-wrapper.section {
+	padding: 30px 0 0;
 }
 .footer-contacts * {
 	background: $color_san_juan_approx;

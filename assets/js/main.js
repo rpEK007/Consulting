@@ -35,6 +35,7 @@ function navigateTo(tabId) {
 	}
 	$("#our-clients").show();
 	initCarousel();
+	$('.banner').attr('class', 'banner ' + $tabs.filter('li').attr('id'));
 	if (onNavigation instanceof Function) {
 		onNavigation();
 	}

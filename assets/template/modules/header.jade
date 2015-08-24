@@ -11,18 +11,17 @@ header#header-2.header
 
             .collapse.navbar-collapse.navbar-ex1-collapse
                 ul.nav.navbar-nav                    
-                    li.dropdown
+                    li.dropdown#aboutUsMenu.active
                         a(class="dropdown-toggle", data-toggle="dropdown")= aboutJWA
                         ul.dropdown-menu
                             li: a(href="#aboutUs")= aboutUs
                             li: a(href="#ourContacts")= ourContacts
                             li: a(href="#ourMission")= ourPurposeTitle
-                    li.dropdown
+                    li.dropdown#ourServicesMenu
                         a(class="dropdown-toggle", data-toggle="dropdown")= ourServices
                         ul.dropdown-menu
                             li: a(href="#ourMethods")= ourMethods
                             li: a(href="#directions")= directions
                             li: a(href="#clients")= clients
-                            li: a(href="#lobbying")= lobbying
-                            li: a(href="#examples")= examples                            
-                    li.active: a(href="#news")= newsTitle
+                    li#lobbyingMenu: a(href="#lobbying")= lobbying
+                    li#newsMenu: a(href="#news")= newsTitle
