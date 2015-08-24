@@ -41,14 +41,15 @@ function navigateTo(tabId) {
 	}
 }
 
-function setL10n() {
-    currentL10n = localStorage.getItem("l10n") || "ua";
+function setL10n(l10n) {
+    currentL10n = l10n || localStorage.getItem("l10n") || "ua";
 	localStorage.setItem("l10n", currentL10n);
 	locales[currentL10n].news = newsJSON[currentL10n];
 	$("#main-wrapper").html(template(
 		locales[localStorage.getItem("l10n")]
 	));
 	initCarousel();
+	navigateTo(location.hash);
 }
 
 function initCarousel() {
@@ -118,6 +119,11 @@ $(function () {
 		})
 		.on("click", ".closing-icon", function (e) {
 			e.target.parentElement.remove();
+		}).
+		on("click", ".lang", function (e) {
+			setL10n(e.target.dataset.lang);
+
+			return false;
 		});
     location.hash = location.hash || "aboutUs";
     navigateTo(location.hash);

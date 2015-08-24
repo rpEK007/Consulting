@@ -38,23 +38,30 @@ a {
 		color: $color_matisse_approx;
 	}
 }
+.vertical-sep {
+	font-size: 22px;
+	vertical-align: bottom;
+}
 .tab-content {
 	border: none;
 }
 #logoImage {
 	height: 100px;
+  	margin-right: -100px;
 }
 .service-2 {
 	min-height: 110px;
 }
 .color-skin-7 .service {
-	border: 2px solid #2980b9;
+	border: 3px solid #2980b9;
 	background: #FFF;
 	box-shadow: none;
 	border-radius: 18px;
+	height: 220px;
 
 	&:hover {
 		background-color: #ecf0f1;
+		cursor: pointer;
 		h4 {
 			color: #2c3e50;			
 		}
@@ -62,6 +69,9 @@ a {
 			box-shadow: none;
 		}
 	}
+}
+.subpage-title {
+	line-height: 20px;
 }
 #ourMission {
 	i {
@@ -81,6 +91,7 @@ a {
 }
 .nav>li>a {
 	&:hover {
+		cursor: pointer;
 		background: 0 0;
 	}
 	&:focus {
@@ -104,6 +115,7 @@ a {
 			}
 		}
 		&:hover .portfolio-thumb .portfolio-link {
+			cursor: pointer;
 			margin-right: -25px;
 		}
 	}
@@ -123,7 +135,7 @@ a {
 		margin: 10px 0 0;
 	}
 }
-#aboutUsIcon {
+#aboutUsIcon, #missionImageWrapper {
 	height: 362px;
 	width: 362px;
 	margin: 20px 0;
@@ -136,6 +148,9 @@ a {
 		padding: 0;
 		margin-left: -46%;
 	}
+}
+#missionImageWrapper img {
+	margin-left: -27%;
 }
 :focus::-webkit-input-placeholder {
 	font-weight: 600;
@@ -156,7 +171,7 @@ a {
 	}
 }
 .banner {
-	height: 235px;
+	height: 300px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -183,6 +198,9 @@ a {
 }
 #header-1 {
 	background-color: $color_san_juan_approx;
+	width: 100%;
+	display: inline-block;
+	margin-bottom: -6px;
 	.header-info-wrapper {
 		float: right;
 	}
@@ -205,7 +223,8 @@ a {
 	padding-top: 0;
 }
 .color-skin-7 a:hover {
-	color: $color_scooter_approx;
+	color: $color_scooter_approx;	
+	cursor: pointer;
 }
 .navbar-default .navbar-toggle .icon-bar {
 	background-color: $color_boston_blue_approx;
@@ -226,7 +245,7 @@ a {
 	.service-icon {
 		background-size: cover;
 		background-repeat: no-repeat;
-		background-position-x: -22px;
+		background-position-x: -33px;
 	}
 }
 li.dropdown:hover {
@@ -323,6 +342,7 @@ nav .container {
 		font-size: 30px;
 		line-height: 50px;
 		&:hover {
+			cursor: pointer;
 			background: rgba(0,90,255,.1);
 		}
 	}
