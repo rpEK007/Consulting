@@ -77,64 +77,6 @@ function switchNews(newsIndex) {
 	}
 }
 
-function setTooltips(itemsSelector, containerSelector, context) {	
-	var $tooltipContainer = $(containerSelector, context),
-		$wrappers = $(itemsSelector, context),
-		$prevElement;
-
-	$wrappers
-		.off('show.bs.tooltip hide.bs.tooltip')
-		.each(function () {
-			$(this).data('tooltip') && $(this).tooltip('destroy');
-			$(this).tooltip({
-	    		container: $tooltipContainer, 
-	    		title: $(this).nextAll('.details:first').text(),
-	    		placement: 'bottom',
-	    		trigger: 'click',
-	    		html: true
-	    	});
-		})
-    	.on('show.bs.tooltip', function (e) {
-    		var element = $(e.target),
-    			parent = element.parent(),
-    			elementsInRow = Math.floor(
-					parent.width()/element.width()
-				),
-				allElements = element.parent().find('.wrapper-1'),
-				positionInParent = allElements.index(element) + 1,
-				numberOfElements = allElements.length,
-				newPosition = Math.ceil(
-					positionInParent/elementsInRow
-				) * elementsInRow - 1;
-
-			if ($prevElement !== element) {
-				$prevElement && $prevElement.tooltip('hide');
-				$prevElement = element;
-			}
-
-			if (newPosition < numberOfElements) {
-				allElements
-					.eq(newPosition)
-					.after($tooltipContainer);
-			} else {
-				parent.append($tooltipContainer);
-			}
-			$tooltipContainer.stop().animate({
-				height: element.nextAll('.details').first().height() + 10 + "px"
-			}).css({
-				width: '100%'
-			});
-    	})
-    	.on('hide.bs.tooltip', function (e) {
-    		$tooltipContainer
-	    		.animate({
-					height: "0px"
-				}, function () {
-					$tooltipContainer.removeAttr('style');
-				});
-    	});
-}
-
 window.routes = {
     ourContacts: function () {
         var $map = $("#google-map iframe"),
@@ -146,9 +88,6 @@ window.routes = {
     },
 	news: function () {
         $("#our-clients").hide();
-    },
-    directions: function () {
-    	setTooltips('.wrapper-1', '.detailsContainer', '#directions');
     }
 };
 
@@ -165,6 +104,19 @@ $(function () {
 		})
 		.on("click", "#footer-news a", function (e) {
 			switchNews($(e.target).data("id"))
+		})
+		.on("click", "#directions .wrapper-1, #clients .wrapper-1", function (e) {
+    		var $el = $(e.target).parents('.wrapper-1'),
+    			$clone = $el.find('.details').clone();
+
+    		$el.parents('.module').append($clone);
+    		$clone.append('<div class="closing-icon">✕</div>');
+    		setTimeout(function () {
+    			$clone.addClass('show');
+    		}, 0);
+		})
+		.on("click", ".closing-icon", function (e) {
+			e.target.parentElement.remove();
 		});
     location.hash = location.hash || "aboutUs";
     navigateTo(location.hash);
