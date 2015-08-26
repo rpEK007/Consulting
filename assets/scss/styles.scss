@@ -238,12 +238,19 @@ a {
 	}
 }
 .service-2 {
+  	display: table;
+	&:not(:hover) {
+		background: 0 0;
+	}
 	.service-icon {
 		width: 70px;
 		height: 70px;
+	  	margin-bottom: 0;
 	}
-	&:not(:hover) {
-		background: 0 0;
+	h4 {
+		display: table-cell;
+		vertical-align: middle;
+		width: 100%;
 	}
 }
 #clients, #directions {
