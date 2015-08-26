@@ -1,15 +1,21 @@
 isTouchDevice = "ontouchstart" in document.documentElement;
 
 function onMenuClick(e) {
-	var tabId = $(this).find('a').attr('href'),
-		scrollY = window.scrollY;
+	e.preventDefault();
+
+	switchLocation($(this).find('a').attr('href'));	
+}
+
+function switchLocation(tabId) {
+	var scrollY = window.scrollY;
 
 	if (tabId) {
 		location.hash = tabId;
 	}
 
-	e.preventDefault();
-	$(window).scrollTop(scrollY);
+	setTimeout(function () {
+		$(window).scrollTop(scrollY);
+	}, 0);
 }
 
 function navigateTo(tabId) {
@@ -33,7 +39,6 @@ function navigateTo(tabId) {
 	}
 	$tabs.addClass('active');
 	$('#moduleName').text($el.text());
-	$(window).scrollTop(0);
 	if ($(".navbar-ex1-collapse").attr("aria-expanded")) {
 		$(".navbar-toggle:visible").click();
 	}
@@ -92,7 +97,7 @@ function showDetails() {
 		$clone.append('<div class="back-icon">➜</div>');
 		setTimeout(function () {
 			$clone.addClass('show');
-		}, 0);		
+		}, 0);
 	} else {
 		$('.details.show').remove();
 	}
@@ -130,7 +135,7 @@ $(function () {
 			switchNews($(e.target).data("id"))
 		})
 		.on("click", "[data-hash]", function (e) {
-			location.hash = e.currentTarget.dataset.hash;
+			switchLocation(e.currentTarget.dataset.hash);
 		})
 		.on("click", ".back-icon", function (e) {
 			e.target.parentElement.remove();
@@ -141,8 +146,9 @@ $(function () {
 
 			return false;
 		});
-    location.hash = location.hash || "aboutUs";
-    navigateTo(location.hash);
+
+	switchLocation(location.hash || "aboutUs");
+
     if (!isTouchDevice) {
         $('#servicesTabs [data-toggle="tab"]').on("mouseenter", function () {
             $(this).click()
