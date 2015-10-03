@@ -153,9 +153,11 @@ gulp.task('deploy', function() {
 });
 
 gulp.task('wake-up', function () {
-    var hours = (new Date()).getHours();
+    var hours = (new Date()).getUTCHours() + 2;
 
-    if (hours < 23 && hours > 7) {
+    (hours > 23) && (hours -= 23);
+
+    if (hours <= 22 && hours > 6) {
         require('http')
             .request({host: 'www.jwafunding.com.ua'})
             .end();        
