@@ -151,3 +151,9 @@ gulp.task('deploy', function() {
             remoteUrl: "https://github.com/rpEK007/Consulting.git"
         }));
 });
+
+gulp.task('wake-up', function () {
+    require('http')
+        .request({host: 'www.jwafunding.com.ua'})
+        .end();
+});
