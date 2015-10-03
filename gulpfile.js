@@ -153,7 +153,11 @@ gulp.task('deploy', function() {
 });
 
 gulp.task('wake-up', function () {
-    require('http')
-        .request({host: 'www.jwafunding.com.ua'})
-        .end();
+    var hours = (new Date()).getHours();
+
+    if (hours < 23 && hours > 7) {
+        require('http')
+            .request({host: 'www.jwafunding.com.ua'})
+            .end();        
+    }
 });
